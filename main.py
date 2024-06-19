@@ -7,13 +7,11 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 import torch.nn.parallel
 import torch.utils.data.distributed
-from networks.efficient_transunet import fine_UNETR
-
+from networks.FTUnet3D import Focus_TransUnet3D
 from optimizers.lr_scheduler import LinearWarmupCosineAnnealingLR
 from trainer import run_training
 from utils.data_utils import get_loader
 from utils.adaswitch import AdaSwitch
-
 from monai.inferers import sliding_window_inference
 from monai.losses import DiceCELoss, DiceLoss
 from monai.metrics import DiceMetric
@@ -116,7 +114,7 @@ def main_worker(gpu, args):
     inf_size = [args.roi_x, args.roi_y, args.roi_z]
     pretrained_dir = args.pretrained_dir
     if (args.model_name is None) or args.model_name == "FTUNET3D":
-        model = fine_UNETR(
+        model = Focus_TransUnet3D(
             in_channels=args.in_channels,
             out_channels=args.out_channels,
             img_size=(args.roi_x, args.roi_y, args.roi_z),
