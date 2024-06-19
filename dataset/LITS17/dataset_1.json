@@ -1,1 +1,9 @@
 # the dataset for liver tumor.
+@article{bilic2023liver,
+	title={The liver tumor segmentation benchmark (lits)},
+	author={Bilic, Patrick and Christ, Patrick and Li, Hongwei Bran and Vorontsov, Eugene and Ben-Cohen, Avi and Kaissis, Georgios and Szeskin, Adi and Jacobs, Colin and Mamani, Gabriel Efrain Humpire and Chartrand, Gabriel and others},
+	journal={Medical Image Analysis},
+	volume={84},
+	pages={102680},
+	year={2023}
+}
